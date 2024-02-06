@@ -42,3 +42,21 @@
 各artisanコマンドは、./vendor/bin/sail artisan 〜 のように記述してください。
 
 ※ この雛形を作った人間はあまりDockerに詳しくないため、不具合が出ても解決方法は基本的には分かりませんので、その辺りはご注意を。
+
+## vuetifyのインストール
+
+LaravelSailのように、viteのバージョンが4.xのプロジェクトの場合は、以下のようにvite-plugin-vuetifyのバージョンを指定する。(latest)の部分は最新バージョンのもので大丈夫。vite-plugin-vuetifyの最新バージョンの2.0.1だと、viteのバージョンが古いためnode_modulesがぶっ壊れる。
+
+"devDependencies": {
+
+    "vite-plugin-vuetify": "^1.0.2",
+
+    "vuetify": (latest)
+
+},
+
+"dependencies": {
+
+    "@mdi/font": (latest),
+
+}
