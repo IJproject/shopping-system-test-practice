@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import Snackbar from "@/Components/Common/Feedbacks/Snackbar.vue";
+import Snackbar from "@/Components/Common/Feedbacks/SnackBar.vue";
 
 const is_open = ref(true);
 </script>
