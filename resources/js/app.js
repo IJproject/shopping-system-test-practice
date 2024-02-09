@@ -8,10 +8,19 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { createVuetify } from 'vuetify';
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/dist/vuetify.min.css'
+// import 'vuetify/styles';
+import { themeColors } from '@/theme';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
-const vuetify = createVuetify();
+const vuetify = createVuetify({
+	theme: {
+		defaultTheme: 'themeColors',
+		themes: {
+			themeColors,
+		},
+	},
+});
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
