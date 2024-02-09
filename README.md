@@ -1,9 +1,9 @@
 # Laravel＋Vue の雛形
 
-[Vueのドキュメントはこちら](https://ja.vuejs.org/)
-[Vuetifyのドキュメントはこちら](https://vuetifyjs.com/en/)
-[Laravelのドキュメントはこちら](https://laravel.com/docs)
-[Inertiaのドキュメントはこちら](https://inertiajs.com/)
+* [Vueのドキュメントはこちら](https://ja.vuejs.org/)
+* [Vuetifyのドキュメントはこちら](https://vuetifyjs.com/en/)
+* [Laravelのドキュメントはこちら](https://laravel.com/docs)
+* [Inertiaのドキュメントはこちら](https://inertiajs.com/)
 
 ## セットアップ方法
 
@@ -15,7 +15,7 @@
 * ローカル環境にソースコードをクローン
 * .envファイルを作成し、.env.exammpleの内容を全てコピペ (DBの部分は適切なものを選択してください。値の変更自体は不要です。)
 * プロジェクトのルートディレクトリで、以下のコマンドを順に実行
-    * ```bash
+    * ```bash:mac
       docker run --rm \
       -u "$(id -u):$(id -g)" \
       -v "$(pwd)":/var/www/html \
@@ -24,6 +24,15 @@
       bash -c \
       "composer install && \
       php artisan key:generate"
+      ```
+      ※ Windowsとかだとコマンド少し違うかもなので、その場合はこっちを実行してみてください。
+      ```
+      docker run --rm `
+      -v "${PWD}:/var/www/html" `
+      -w /var/www/html `
+      laravelsail/php82-composer:latest `
+      bash -c "composer install && php artisan key:generate"
+
       ```
     * ```bash
       docker-compose up -d
