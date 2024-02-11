@@ -3,20 +3,26 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "test": "vitest"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
+        "@types/node": "^20.11.17",
         "@vitejs/plugin-vue": "^4.5.0",
+        "@vue/test-utils": "^2.4.4",
         "autoprefixer": "^10.4.12",
         "axios": "^1.6.1",
+        "jsdom": "^24.0.0",
         "laravel-vite-plugin": "^1.0.0",
         "vite": "^5.0.0",
+        "vitest": "^1.2.2",
         "vue": "^3.2.41"
     },
     "dependencies": {
         "@mdi/font": "^7.3.67",
         "vite-plugin-vuetify": "^2.0.1",
-        "vuetify": "^3.4.8"
+        "vuetify": "^3.4.8",
+        "ziggy-js": "^1.8.1"
     }
 }
