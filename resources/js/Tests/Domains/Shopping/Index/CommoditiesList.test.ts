@@ -3,14 +3,14 @@ import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { commodities } from '@/Tests/Utils/sampleData';
 
-describe('CommoditiesList', () => {
+describe('Shopping/Index/CommoditiesList', () => {
+
+    // コンポーネントをマウントし、propsに商品データを渡す
+    const wrapper = mount(CommoditiesList, {
+        props: { commodities: commodities },
+    });
+
     it('renders commodities correctly', () => {
-        
-        // コンポーネントをマウントし、propsに商品データを渡す
-        const wrapper = mount(CommoditiesList, {
-            props: { commodities: commodities },
-        });
-    
         // 商品の数が正しくレンダリングされているか確認
         const commodityCards = wrapper.findAll('.v-card'); // v-cardクラスを持つ要素を全て見つける
         expect(commodityCards.length).toBe(commodities.length); // 商品の数と一致するかチェック

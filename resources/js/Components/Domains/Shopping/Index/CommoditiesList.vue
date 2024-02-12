@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { CommodityTypes } from "@/Types/commodity";
+import route from "ziggy-js";
 
 const props = defineProps<{
     commodities: CommodityTypes[];
@@ -11,6 +12,7 @@ const props = defineProps<{
     <v-card
         v-for="commodity in commodities"
         :key="commodity.id"
+        :href="route('shopping.show', commodity.id)"
         class="pa-2 my-4"
     >
         <v-card-text>
