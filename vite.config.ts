@@ -23,7 +23,7 @@ export default defineConfig({
     ],
     test: {
         globals: true,
-        setupFiles: path.resolve(__dirname, '/resources/js/Tests/setup.ts'),
+        setupFiles: path.resolve(__dirname, 'resources/js/Tests/setup.ts'),
         environment: 'jsdom',
         include: ['resources/js/Tests/**/*.test.ts'],
         server: {

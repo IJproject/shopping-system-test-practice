@@ -11,7 +11,7 @@ use App\Models\Commodity;
 
 class IndexTest extends TestCase
 {
-    use RefreshDatabase;
+    protected static $alreadyInitialized = false;
     
     protected $user;
     protected $commodity;
@@ -22,46 +22,39 @@ class IndexTest extends TestCase
     {
         parent::setUp();
         
-        $this->user = User::create([
-            'name' => 'TestUser',
-            'email' => 'test@test.com',
-            'password' => bcrypt('abcd1234'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        $this->actingAs($this->user);
+        // テストデータの初期化
+        if (!self::$alreadyInitialized) {    
+            User::create([
+                'name' => 'TestUser',
+                'email' => 'test@test.com',
+                'password' => bcrypt('abcd1234'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            
+            Commodity::factory(20)->create();
+            Commodity::factory()->create([
+                'name' => 'テストで使用します',
+                'description' => 'test description',
+                'price' => 1000,
+                'image_url' => 'https://placehold.jp/150x150.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
 
-        $this->commodities = Commodity::factory(20)->create();
-        $this->commodities->push(Commodity::factory()->create([
-            'name' => 'testtesttesttesttesttest',
-            'description' => 'test',
-            'price' => 1000,
-            'image_url' => 'https://placehold.jp/150x150.png',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]));
+            self::$alreadyInitialized = true;
+        }
+
+        // ログイン
+        $this->actingAs(User::first());
     }
 
     /**
      * @test
      */
-    public function shopping_index()
-    {
-        $this->access_page();
-        $this->search_commodities();
-    }
-
-    // ページにアクセスすることができるか
-    protected function access_page()
+    public function access_page()
     {
         $response = $this->get('/shopping');
         $response->assertStatus(200);
-    }
-    
-    // 商品検索をすることができるか
-    protected function search_commodities()
-    {
-        $response = $this->get('/shopping?search_word=テスト');
-        // $response->assertStatus(200);
     }
 }

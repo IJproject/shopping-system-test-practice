@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { CommodityTypes } from "@/Types/commodity";
-import route from "ziggy-js";
 
 const props = defineProps<{
     commodities: CommodityTypes[];

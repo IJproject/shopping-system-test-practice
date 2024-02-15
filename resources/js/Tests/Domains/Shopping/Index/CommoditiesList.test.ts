@@ -4,7 +4,6 @@ import { mount } from '@vue/test-utils';
 import { commodities } from '@/Tests/Utils/sampleData';
 
 describe('Shopping/Index/CommoditiesList', () => {
-
     // コンポーネントをマウントし、propsに商品データを渡す
     const wrapper = mount(CommoditiesList, {
         props: { commodities: commodities },
